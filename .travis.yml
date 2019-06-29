@@ -2,7 +2,7 @@ services:
   - docker
 script: 
   - echo "success"
-after_sucesss:
+after_success:
   - docker build -t liran/multi-client ./client
   - docker build -t liran/multi-nginx ./nginx
   - docker build -t liran/multi-server ./server
