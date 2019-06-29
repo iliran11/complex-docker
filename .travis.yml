@@ -9,3 +9,5 @@ after_sucesss:
   - docker build -t liran/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push liran/multi-client liran/multi-nginx liran/multi-server liran/multi-worker
+after_failure:
+  - echo "failure"
