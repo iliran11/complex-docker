@@ -1,0 +1,23 @@
+{
+  "AWSEBDockerrunVesion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image" : "iliran11/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image" : "iliran11/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "iliran11/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    }
+  ]
+}
