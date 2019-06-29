@@ -12,5 +12,16 @@ after_success:
   - docker push iliran11/multi-nginx
   - docker push iliran11/multi-server
   - docker push iliran11/multi-worker
-after_failure:
-  - echo "failure"
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-1-252150623009
+  bucket_path: docker-multi
+  on:
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secure: $AWS_SECRET_KEY
+
+

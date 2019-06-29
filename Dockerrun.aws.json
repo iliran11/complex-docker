@@ -3,13 +3,13 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image" : "iliran11/multi-client",
+      "image": "iliran11/multi-client",
       "hostname": "client",
       "essential": false
     },
     {
       "name": "server",
-      "image" : "iliran11/multi-server",
+      "image": "iliran11/multi-server",
       "hostname": "api",
       "essential": false
     },
@@ -18,6 +18,18 @@
       "image": "iliran11/multi-worker",
       "hostname": "worker",
       "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "iliran11/multi-nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
     }
   ]
 }
